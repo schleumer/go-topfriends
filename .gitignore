@@ -14,8 +14,9 @@ dist
 /RUNNING_PID
 /.settings
 node_modules
-public/
-!public/img
+public/*
+!public/fonts
+!public/images
 settings.json
 
 # Compiled Object files, Static and Dynamic libs (Shared Objects)
