@@ -1,6 +1,7 @@
 package app
 
 import "github.com/revel/revel"
+import "fmt"
 
 func init() {
 	// Filters is the default set of global filters.
@@ -23,6 +24,11 @@ func init() {
 	// ( order dependent )
 	// revel.OnAppStart(InitDB())
 	// revel.OnAppStart(FillCache())
+
+	revel.TemplateFuncs["body"] = func(a ...interface{}) string {
+		fmt.Println(a)
+		return "Gay"
+	}
 }
 
 // TODO turn this into revel.HeaderFilter

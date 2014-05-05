@@ -5,10 +5,17 @@ module.exports = (grunt) ->
       css: ['public/css/**/*.css']
       js: ['public/js/**/*.js']
     concurrent:
+      go:
+        tasks: [
+          'shell:go'
+        ]
+        options:
+          logConcurrentOutput: true
       dev:
         tasks: [
-          'watch'
-          #'shell:play'
+          'watch:styles'
+          'watch:coffee'
+          'watch:libs'
         ]
         options:
           logConcurrentOutput: true
@@ -20,21 +27,21 @@ module.exports = (grunt) ->
         tasks: [
           'clean:css', 'less'
         ]
+      go: 
+        files: [
+          '**/*.go'
+        ]
+        tasks: ['concurrent:go']
       coffee:
         files: [
           'src/coffee/**/*.coffee'
         ]
-        tasks: ['clean:js', 'coffee', 'uglify', 'requirejs:compile']
+        tasks: ['clean:js', 'coffee', 'uglify']
       libs: 
         files: [
           'src/libs/**/*'
         ]
         tasks: ['copy:libs']
-      templates: 
-        files: [
-          'src/templates/**/*'
-        ]
-        tasks: ['copy:templates']
     less:
       development:
         options:
@@ -89,6 +96,11 @@ module.exports = (grunt) ->
             stdout: true
             stdin: true
         command: 'play debug run'
+      go:
+        options:
+            stdout: true
+            stdin: true
+        command: 'go run app.go'
     requirejs:
       compile:
         options:
@@ -110,5 +122,5 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-requirejs'
   grunt.loadNpmTasks 'grunt-concurrent'
 
-  grunt.registerTask 'default', ['clean', 'less', 'coffee', 'uglify', 'copy', 'requirejs:compile', 'concurrent']
+  grunt.registerTask 'default', ['clean', 'less', 'coffee', 'uglify', 'copy', 'concurrent']
   grunt.registerTask 'dev', ['clean', 'less:compile', 'watch:styles']

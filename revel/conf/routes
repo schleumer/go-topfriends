@@ -10,7 +10,9 @@ GET     /                                       App.Index
 GET     /favicon.ico                            404
 
 # Map static resources from the /app/public folder to the /public path
-GET     /public/*filepath                       Static.Serve("public")
+GET     /assets/*filepath                       Static.Serve("public")
+
+GET		/templates/*templatePath				Templates.Render
 
 # Catch all
 *       /:controller/:action                    :controller.:action
