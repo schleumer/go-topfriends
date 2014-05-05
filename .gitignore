@@ -1,3 +1,23 @@
+logs
+project/project
+project/target
+target
+tmp
+.history
+dist
+/.idea
+/*.iml
+/out
+/.idea_modules
+/.classpath
+/.project
+/RUNNING_PID
+/.settings
+node_modules
+public/
+!public/img
+settings.json
+
 # Compiled Object files, Static and Dynamic libs (Shared Objects)
 *.o
 *.a
