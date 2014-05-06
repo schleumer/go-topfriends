@@ -1,7 +1,7 @@
 package app
 
 import "github.com/revel/revel"
-import "github.com/schelumer/go-topfriends/app/socketio"
+import "github.com/schleumer/go-topfriends/app/socketio"
 import "fmt"
 
 func init() {
