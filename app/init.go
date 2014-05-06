@@ -1,6 +1,7 @@
 package app
 
 import "github.com/revel/revel"
+import "github.com/schelumer/go-topfriends/app/socketio"
 
 func init() {
 	// Filters is the default set of global filters.
@@ -23,6 +24,8 @@ func init() {
 	// ( order dependent )
 	// revel.OnAppStart(InitDB())
 	// revel.OnAppStart(FillCache())
+
+	revel.OnAppStart(socketio.PatchServer)
 }
 
 // TODO turn this into revel.HeaderFilter
