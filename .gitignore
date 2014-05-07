@@ -41,8 +41,10 @@ _cgo_export.*
 _testmain.go
 
 *.exe
+*.exe~
 *.test
-
+go-topfriends
+daemon
 test-results/
 tmp/
 routes/
