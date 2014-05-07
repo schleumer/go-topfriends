@@ -13,10 +13,10 @@ dist
 /.project
 /RUNNING_PID
 /.settings
-node_modules
-public/*
-!public/fonts
-!public/images
+/static/node_modules
+/static/public/*
+!/static/public/fonts
+!/static/public/images
 settings.json
 
 # Compiled Object files, Static and Dynamic libs (Shared Objects)
