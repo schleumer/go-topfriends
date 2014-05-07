@@ -2,14 +2,13 @@ package controllers
 
 import (
 	"github.com/schleumer/go-mvc"
+	"time"
 )
 
-type Index struct {
-	*gomvc.Controller
-}
+type Index struct{}
 
-func (c Index) Index(wrapper gomvc.Wrapper) {
-	wrapper.Write(`
+func (c Index) Index(w gomvc.Wrapper) {
+	w.Write(`
         <html>
             <head>
             </head>  
@@ -18,15 +17,48 @@ func (c Index) Index(wrapper gomvc.Wrapper) {
                 <script type="text/javascript">
                     document.onreadystatechange = function(){
                         if(document.readyState == "complete"){
-                            //document.getElementById("transport").src = "/"
+                            document.getElementById("transport").src = "/pool"
                         }
                     }
                 </script>
             </body>
         </html>
     `)
+	w.Render("index.html")
 }
 
 func (c Index) Test(w gomvc.Wrapper) {
 	w.Write("shit")
+}
+
+func (c Index) Pool(w gomvc.Wrapper) {
+	w.Push("Gay")
+	amt := time.Duration(1000)
+	time.Sleep(time.Millisecond * amt)
+	w.Push("Gay")
+	time.Sleep(time.Millisecond * amt)
+	w.Push("Gay")
+	time.Sleep(time.Millisecond * amt)
+	w.Push("Gay")
+	time.Sleep(time.Millisecond * amt)
+	w.Push("Gay")
+	time.Sleep(time.Millisecond * amt)
+	w.Push("Gay")
+	time.Sleep(time.Millisecond * amt)
+	w.Push("Gay")
+	time.Sleep(time.Millisecond * amt)
+	w.Push("Gay")
+	time.Sleep(time.Millisecond * amt)
+	w.Push("Gay")
+	time.Sleep(time.Millisecond * amt)
+	w.Push("Gay")
+	time.Sleep(time.Millisecond * amt)
+	w.Push("Gay")
+	time.Sleep(time.Millisecond * amt)
+	w.Push("Gay")
+	time.Sleep(time.Millisecond * amt)
+	w.Push("Gay")
+	time.Sleep(time.Millisecond * amt)
+	w.Push("Gay")
+	w.End()
 }
