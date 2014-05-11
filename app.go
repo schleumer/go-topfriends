@@ -11,6 +11,7 @@ func main() {
 	root, _ := os.Getwd()
 	app.StaticRoot = path.Join(root, "static", "public")
 	app.ViewsRoot = path.Join(root, "views")
+	app.ProjectPath = root
 	app.Routing = gomvc.RouteMap{
 		"GET /":     controllers.Index.Index,
 		"GET /test": controllers.Index.Test,

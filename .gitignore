@@ -48,3 +48,5 @@ daemon
 test-results/
 tmp/
 routes/
+
+*.bin

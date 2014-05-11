@@ -8,27 +8,13 @@ import (
 type Index struct{}
 
 func (c Index) Index(w gomvc.Wrapper) {
-	w.Write(`
-        <html>
-            <head>
-            </head>  
-            <body>
-                <iframe id="transport"></iframe>
-                <script type="text/javascript">
-                    document.onreadystatechange = function(){
-                        if(document.readyState == "complete"){
-                            document.getElementById("transport").src = "/pool"
-                        }
-                    }
-                </script>
-            </body>
-        </html>
-    `)
+	w.Session.Values["xd"] = "lel"
+	w.SaveSession()
 	w.Render("index.html")
 }
 
 func (c Index) Test(w gomvc.Wrapper) {
-	w.Write("shit")
+	w.Write(w.Session.Values["xd"].(string))
 }
 
 func (c Index) Pool(w gomvc.Wrapper) {
