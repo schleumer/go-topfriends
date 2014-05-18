@@ -1,1 +1,1 @@
-./daemon --command="./app.bin" --directory="../" --build="go build -o go-topfriends/app.bin go-topfriends/app.go"
+./daemon --command="./app.exe" --directory="../" --build="go build -o go-topfriends/app.exe go-topfriends/app.go"

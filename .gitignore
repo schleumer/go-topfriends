@@ -34,7 +34,7 @@ _test
 
 *.cgo1.go
 *.cgo2.c
-_cgo_defun.c
+_cgo_defeun.c
 _cgo_gotypes.go
 _cgo_export.*
 
@@ -50,3 +50,5 @@ tmp/
 routes/
 
 *.bin
+
+node_modules
